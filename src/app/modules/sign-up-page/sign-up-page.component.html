@@ -1,0 +1,74 @@
+<section>
+    <div class="logintitle">
+      <span class="title">Sign Up</span>
+    </div>
+    <div class="logindetails">
+      <span class="details">
+        Please fill your detail to create your account.</span
+      >
+    </div>
+    <form [formGroup]="signUp" (ngSubmit)="save()">
+
+    <div class="mainlogin">
+
+      <div class="login">
+        <span id="t"> Enter full name</span>
+        <mat-form-field appearance="outline">
+          <mat-label>Name </mat-label>
+          <input [(ngModel)]="name"
+          formControlName="name"  matInput placeholder="Name" />
+        </mat-form-field>
+        <!-- <span id="t"> Phone Number</span>
+        <mat-form-field appearance="outline">
+          <mat-label>Number </mat-label>
+          <input matInput placeholder="Number" />
+        </mat-form-field> -->
+        <span id="t"> Email</span>
+        <mat-form-field appearance="outline">
+          <mat-label>Email </mat-label>
+          <input [(ngModel)]="email"
+          formControlName="email" matInput placeholder="Email" />
+        </mat-form-field>
+        <span id="t">Password</span>
+        <mat-form-field appearance="outline">
+          <mat-label>Password </mat-label>
+          <input [(ngModel)]="password"
+          formControlName="password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            placeholder="Password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+     
+    </div>
+    <div class="extra">
+      <div class="log">
+        <button  mat-stroked-button class="cancel"  routerLink="/otp-number-page"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"  type="submit" [disabled]="!signUp.valid">Login</button>
+
+      </div>
+      <div class="sig">
+        <span>Sign in with Google</span>
+      </div>
+      <div class="ds">
+        <span>Already have an account?</span>
+        <span  routerLink="/login-page"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page">Login</span>
+  
+      </div>
+    </div>
+    </form>
+  </section>
+  

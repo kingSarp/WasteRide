@@ -1,0 +1,35 @@
+<section>
+  <div class="logintitle">
+    <span class="title">OTP Verification</span>
+  </div>
+  <div class="logindetails">
+    <span class="details">
+      A 6  digit code has been sent to  lawrendernaah@gmail.com </span
+    >
+  </div>
+  <form [formGroup]="otp" (ngSubmit)="save()">
+
+  <div class="mainlogin">
+    <div class="login">
+      <span id="t"> Enter Otp</span>
+      <mat-form-field appearance="outline">
+        <mat-label>OTP </mat-label>
+        <input [(ngModel)]="otpnumber"
+        formControlName="otp" matInput placeholder="Password" />
+      </mat-form-field>
+      
+    </div>
+    <div class="time">
+      <span id="time"> Haven’t gotten code yet? 30:00 sec</span>
+    </div>
+    
+  </div>
+  <div class="extra">
+    <div class="log">
+      <button mat-stroked-button class="cancel"   type="submit" [disabled]="!otp.valid">Verify</button>
+    </div>
+    
+  </div>
+  </form>
+</section>
+<router-outlet></router-outlet>

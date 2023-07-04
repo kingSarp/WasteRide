@@ -1,0 +1,65 @@
+<section>
+  <div class="logintitle">
+    <span class="title">Sign In</span>
+  </div>
+  <div class="logindetails">
+    <span class="details">
+      Please fill your detail to access your account.</span
+    >
+  </div>
+  <form [formGroup]="signIn" (ngSubmit)="save()">
+
+  <div class="mainlogin">
+    <div class="login">
+      <span id="t"> Email</span>
+      <mat-form-field appearance="outline">
+        <mat-label>Add link Tags </mat-label>
+        <input [(ngModel)]="email"
+        formControlName="email" matInput placeholder="Password" />
+      </mat-form-field>
+      <span id="t">Password</span>
+      <mat-form-field appearance="outline">
+        <mat-label>Add link Tags </mat-label>
+        <input [(ngModel)]="password"
+        formControlName="password"
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          placeholder="Password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="rem">
+      <mat-checkbox class="example-margin">Remember me</mat-checkbox>
+      <span>Forgot Password?</span>
+    </div>
+  </div>
+  <div class="extra">
+    <div class="log">
+      <button mat-stroked-button class="cancel"   type="submit" [disabled]="!signIn.valid">Login</button>
+    </div>
+    <div class="sig">
+      <button mat-stroked-button class="cancel" >Sign in with Google</button>
+    </div>
+    <div class="ds">
+      <span>Dont have an account?</span>
+      <span
+        routerLink="/sign-up-page"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+       
+        >Sign Up</span
+      >
+    </div>
+  </div>
+  </form>
+</section>
+<router-outlet></router-outlet>
